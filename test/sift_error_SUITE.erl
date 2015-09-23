@@ -1,4 +1,4 @@
-%% Copyright (c) 2012, Treetop Software LLC
+%% Copyright (c) 2015 Thomas Burdick <thomas.burdick@gmail.com>
 %%
 %% Permission to use, copy, modify, and/or distribute this software for any
 %% purpose with or without fee is hereby granted, provided that the above
@@ -12,8 +12,8 @@
 %% ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 %% OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-%% @author Tom Burdick <tburdick@treetopllc.com>
-%% @copyright 2012 Treetop Software LLC.
+%% @author Thomas Burdick <thomas.burdick@gmail.com>
+%% @copyright 2015 Thomas Burdick <thomas.burdick@gmail.com>.
 %% @doc Sift Error Test Suite.
 
 -module(sift_error_SUITE).
