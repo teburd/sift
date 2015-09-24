@@ -17,3 +17,27 @@
 %% @doc Numerical Value Checking and Conversion
 
 -module(sift_number).
+
+-export([rule/1]).
+-export([check/2]).
+
+-type opts() :: proplists:proplist().
+
+-spec rule(opts()) -> sift_rule:rule().
+rule(Opts) ->
+    sift_rule:rule({sift_number, check}, Opts).
+
+-spec check(opts(), any()) -> {ok, number()} | {error, sift_error:error()}.
+check({'>', Val0}, Val1) when is_number(Val0) andalso is_number(Val1) andalso Val1 > Val0 ->
+    {ok, Val1};
+check({'>=', Val0}, Val1) when is_number(Val0) andalso is_number(Val1) andalso Val1 >= Val0 ->
+    {ok, Val1};
+check({'=', Val0}, Val1) when is_number(Val0) andalso is_number(Val1) andalso Val1 == Val0 ->
+    {ok, Val1};
+check({'<', Val0}, Val1) when is_number(Val0) andalso is_number(Val1) andalso Val1 < Val0 ->
+    {ok, Val1};
+check({'=<', Val0}, Val1) when is_number(Val0) andalso is_number(Val1) andalso Val1 =< Val0 ->
+    {ok, Val1};
+check(Rule, Other) -> 
+    State = sift_rule:state(Rule),
+    {error, sift_error:error(sift_number, State, Other, <<"Must be a number value and rule">>)}.
